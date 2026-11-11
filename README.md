@@ -23,7 +23,7 @@ Cyclistic's director of marketing wants to grow annual memberships. This analysi
 | 6 | The **lakefront is casual territory** | casual riders make 76–82% of rides at Navy Pier, Shedd Aquarium, Field Museum, DuSable Lake Shore Dr & Monroe St; round trips 7.4% vs 2.2% (rides with known stations) |
 | 7 | A **commuter-like casual segment** exists | 25.1% of casual rides (~540k) happen on weekdays at commute hours |
 
-Charts: [`figures/`](figures/) · full analysis: [`notebooks/cyclistic_analysis.ipynb`](notebooks/cyclistic_analysis.ipynb)
+Charts: [`figures/`](figures/) · full analysis: [`notebooks/cyclistic_analysis.ipynb`](notebooks/cyclistic_analysis.ipynb) · interactive dashboard: [Tableau Public](https://public.tableau.com/app/profile/ha.nguyen.thi.thu8875/viz/Membershaveamorningcommutepeakcasualridingspreadsacrossmiddayandevening/Sheet1)
 
 ## Recommendations
 1. **Summer weekend membership offer** (findings 1, 3, 5). A seasonal or "weekend member" plan promoted May–September, upgradable to a full annual membership.
