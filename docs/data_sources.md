@@ -5,7 +5,7 @@
 | Dataset | Divvy trip data (used as "Cyclistic" in the case study) |
 | Publisher | Motivate International Inc. — https://divvy-tripdata.s3.amazonaws.com/index.html |
 | License | https://divvybikes.com/data-license-agreement |
-| Period used | YYYY-MM → YYYY-MM (12 months) |
+| Period used | 2025-11 → 2026-10 (12 months, files published up to 2026-11-05) |
 | Format | 1 CSV per month, one row per trip |
 | Columns | ride_id, rideable_type, started_at, ended_at, start/end station name & id, start/end lat & lng, member_casual |
 

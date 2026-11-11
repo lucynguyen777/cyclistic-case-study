@@ -1,6 +1,7 @@
 """Download the last 12 months of Divvy trip data (public, Motivate International Inc. license).
 
-Usage:  python scripts/download_data.py 2025-11 2026-10
+Usage:  python scripts/download_data.py            (default: 2025-11 → 2026-10, ~238 MB zip)
+        python scripts/download_data.py 2025-11 2026-10
 Files go to data/raw/ as YYYYMM-divvy-tripdata.csv. Original zips are kept untouched in data/raw/zip/.
 Source index: https://divvy-tripdata.s3.amazonaws.com/index.html
 License:      https://divvybikes.com/data-license-agreement
@@ -41,6 +42,9 @@ def main(start: str, end: str):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    if len(sys.argv) == 1:
+        main("2025-11", "2026-10")
+    elif len(sys.argv) == 3:
+        main(sys.argv[1], sys.argv[2])
+    else:
         sys.exit(__doc__)
-    main(sys.argv[1], sys.argv[2])

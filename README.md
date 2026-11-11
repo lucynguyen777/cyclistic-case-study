@@ -1,6 +1,6 @@
 # Cyclistic bike-share case study
 
-Google Data Analytics Capstone, Track A. Analysis in **Python (pandas)**.
+Google Data Analytics Capstone, Track A. Analysis in **DuckDB (SQL) + Python (pandas)**, dashboard in **Tableau Public**.
 
 **Business task:** How do annual members and casual riders use Cyclistic bikes differently, and how can marketing convert casual riders into annual members?
 
@@ -26,6 +26,6 @@ Google Data Analytics Capstone, Track A. Analysis in **Python (pandas)**.
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python scripts/download_data.py 2025-11 2026-10   # ~1 GB, not committed
+python scripts/download_data.py          # 2025-11 → 2026-10, ~238 MB zip, not committed
 jupyter lab notebooks/cyclistic_analysis.ipynb
 ```
