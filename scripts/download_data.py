@@ -29,16 +29,21 @@ def main(start: str, end: str):
     (RAW / "zip").mkdir(parents=True, exist_ok=True)
     for ym in months(start, end):
         zpath = RAW / "zip" / f"{ym}-divvy-tripdata.zip"
+        if zpath.exists() and not zipfile.is_zipfile(zpath):
+            zpath.unlink()  # incomplete or corrupt download
         if not zpath.exists():
-            print(f"downloading {ym} …")
-            urllib.request.urlretrieve(BASE.format(ym=ym), zpath)
+            print(f"downloading {ym} …", flush=True)
+            part = zpath.with_suffix(".zip.part")
+            urllib.request.urlretrieve(BASE.format(ym=ym), part)
+            part.rename(zpath)
         with zipfile.ZipFile(zpath) as z:
-            for name in z.namelist():
-                if name.endswith(".csv") and not name.startswith("__MACOSX"):
-                    target = RAW / Path(name).name
-                    if not target.exists():
-                        target.write_bytes(z.read(name))
-                        print(f"  extracted {target.name}")
+            csvs = [n for n in z.namelist() if n.endswith(".csv") and not n.startswith("__MACOSX")]
+            for i, name in enumerate(csvs):
+                # name the output after the archive month (some archives contain mislabelled inner files)
+                target = RAW / (f"{ym}-divvy-tripdata.csv" if len(csvs) == 1 else f"{ym}-divvy-tripdata-{i + 1}.csv")
+                if not target.exists():
+                    target.write_bytes(z.read(name))
+                    print(f"  extracted {name} -> {target.name}", flush=True)
 
 
 if __name__ == "__main__":
